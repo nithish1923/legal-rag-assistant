@@ -1,6 +1,7 @@
 streamlit
-langchain
-openai
+langchain>=0.1.0
+openai>=1.0.0
 faiss-cpu
-pdfplumber
 python-docx
+pypdf
+python-dotenv

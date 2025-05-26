@@ -1,3 +1,4 @@
+# langflow_rag_app.py
 
 import os
 import streamlit as st
@@ -9,8 +10,8 @@ from langchain.chains import RetrievalQA
 from langchain.llms import OpenAI
 from tempfile import NamedTemporaryFile
 
-# Set your API key in environment variable or secrets
-OPENAI_API_KEY = os.getenv("OPENAI_API_KEY") or st.secrets["OPENAI_API_KEY"]
+# Securely load OpenAI API key from Streamlit secrets
+OPENAI_API_KEY = st.secrets["OPENAI_API_KEY"]
 
 st.set_page_config(page_title="Legal Document Assistant", layout="wide")
 st.title("📄 AI Legal Document Assistant")
@@ -60,3 +61,5 @@ if uploaded_files and query:
         for i, doc in enumerate(chunks[:5]):
             st.markdown(f"**Chunk {i+1}:**")
             st.write(doc.page_content)
+
+
